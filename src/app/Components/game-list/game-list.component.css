@@ -1,0 +1,31 @@
+h1 {
+    font-weight: bold;
+}
+
+div {
+    display: flex;
+    justify-content: space-between;
+}
+
+div > button {
+    background-color: #51D5AD;
+    color: #fff;
+    border: none;
+    border-radius: 35px;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 35px;
+    display: inline-block;
+}
+
+div > input {
+    padding: 1em;
+}
+
+#records {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    color: #45187F;
+    font-weight: bold;
+}
