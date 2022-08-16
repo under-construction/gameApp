@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "44ce3868-cbea-46b7-90e2-1b4ff904769b"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -66,6 +69,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gameApp:build",
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "gameApp:build:production"
@@ -99,6 +106,16 @@
             "scripts": []
           }
         }
+      }
+    }
+  },
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "skipTests": true
+      },
+      "service": {
+        "skipTests": true
       }
     }
   },
