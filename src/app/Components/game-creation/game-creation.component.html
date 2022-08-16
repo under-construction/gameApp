@@ -1,0 +1,10 @@
+<div>
+    <h3>New Game</h3>
+
+    <form [formGroup]="gameForm">
+        <input placeholder="Game Name" type="text" formControlName="gameName"/>
+        <input placeholder="Bundle" type="text" formControlName="bundle"/>
+        <input placeholder="Owner" type="email" formControlName="owner"/>
+        <input type="file" id="fileInput"/>
+    </form>
+</div>

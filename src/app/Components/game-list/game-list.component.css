@@ -29,3 +29,9 @@ div > input {
     color: #45187F;
     font-weight: bold;
 }
+
+button > a {
+    color: #eee;
+    font-weight: bold;
+    text-decoration: none;
+}

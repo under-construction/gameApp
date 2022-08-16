@@ -1,0 +1,9 @@
+input {
+    display: block;
+    margin: 20px 0px;
+    padding: 1em;
+}
+
+#fileInput {
+    padding: 0%;
+}
