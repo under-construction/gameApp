@@ -1,10 +1,46 @@
-<div>
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div>
     <h3>New Game</h3>
 
-    <form [formGroup]="gameForm">
-        <input placeholder="Game Name" type="text" formControlName="gameName"/>
-        <input placeholder="Bundle" type="text" formControlName="bundle"/>
-        <input placeholder="Owner" type="email" formControlName="owner"/>
-        <input type="file" id="fileInput"/>
+    <form [formGroup]="gameForm" (ngSubmit)="onSubmit(gameForm)">
+        <input [ngClass]="{'invalidInput': formData.gameName.touched && formData.gameName.errors}"
+        placeholder=" " type="text" formControlName="gameName"/>
+        <label>Game Name</label>
+        <div *ngIf="formData.gameName.touched && formData.gameName.errors" style="color: #E34B3A;">
+            this field is required
+        </div>
+
+        <input [ngClass]="{'invalidInput': formData.bundle.touched && formData.bundle.errors}"
+        placeholder=" " type="text" formControlName="bundle"/>
+        <label>Bundle</label>
+        <div *ngIf="formData.bundle.touched && formData.bundle.errors">
+            <div *ngIf="formData.bundle.errors.required" style="color: #E34B3A;">
+                this field is required
+            </div>
+            <div *ngIf="formData.bundle.errors.pattern" style="color: #E34B3A;">
+                bundle is not valid
+            </div>
+        </div>
+
+        <input [ngClass]="{'invalidInput': formData.owner.touched && formData.owner.errors}"
+        placeholder=" " type="email" formControlName="owner"/>
+        <label>Owner</label>
+        <div *ngIf="formData.owner.touched && formData.owner.errors">
+            <div *ngIf="formData.owner.errors.required" style="color: #E34B3A;">
+                this field is required
+            </div>
+            <div *ngIf="formData.owner.errors.pattern" style="color: #E34B3A;">
+                email is not valid
+            </div>
+        </div>
+
+        <div>
+            <input type="file" id="fileInput"/>
+        </div>
+
+        <div class="btnDiv">
+            <button type="submit">save</button>
+        </div>
     </form>
+    </div>
 </div>
