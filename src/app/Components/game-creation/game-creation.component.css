@@ -1,9 +1,44 @@
 input {
     display: block;
-    margin: 20px 0px;
-    padding: 1em;
+    margin: 20px 0px 0px 0px;
+    padding: 1.2em 1em 1em 1em;
+}
+
+label {
+    display: block;
+    color: #999;
+    transform: translate(1rem, -2rem);
+    transition: all 0.2s ease-out;
+}
+
+input:focus + label, 
+input:not(:placeholder-shown) + label {
+    color: #111;
+    transform: translate(1em, -3rem);
 }
 
 #fileInput {
     padding: 0%;
+}
+
+.invalidInput {
+    border: 2px solid #E34B3A;
+}
+
+.invalidInput + label {
+    color: #E34B3A;
+}
+
+.btnDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    background-color: #C2C8CE;
+    border: none;
+    border-radius: 2em;
+    padding: 1em 2em 1em 2em;
+    color: #54585c;
+    cursor: pointer;
 }
