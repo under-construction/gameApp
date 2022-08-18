@@ -12,7 +12,8 @@ export class GameCreationComponent implements OnInit {
   gameForm = new FormGroup({
     gameName: new FormControl('', [Validators.required]),
     bundle: new FormControl('', [Validators.required, Validators.pattern('/^([A-Za-z]{1}[A-Za-z\\d_]*\\.)+[A-Za-z][A-Za-z\\d_]*$/')]),
-    owner: new FormControl('', [Validators.required, Validators.pattern('^.+@.+\\..+$')])
+    owner: new FormControl('', [Validators.required, Validators.pattern('^.+@.+\\..+$')]),
+    photo: new FormControl('', Validators.required)
   });
 
   isX: boolean = true;
