@@ -1,6 +1,6 @@
 <h2>Game List</h2>
 <div>
-    <input placeholder="search"/>
+    <input placeholder="search" [(ngModel)]="searchText" autofocus>
     <button>
         <a class="btn" routerLink="/create">new game</a>
     </button>
@@ -11,7 +11,7 @@
 </div>
 
 <div class="gameList" *ngIf="games">
-    <div class="gameCard" *ngFor="let i of games">
+    <div class="gameCard" *ngFor="let i of games | searchFilter: searchText">
         <img src="{{i.photo}} | safeHTML" alt="game photo" />
         <div class="cardItem">
             <p style="font-weight: bold;">Game Name:&nbsp;</p>
