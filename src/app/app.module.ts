@@ -7,12 +7,14 @@ import { GameListComponent } from './Components/game-list/game-list.component';
 import { GameCreationComponent } from './Components/game-creation/game-creation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SafeHTMLPipe } from './Pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameListComponent,
-    GameCreationComponent
+    GameCreationComponent,
+    SafeHTMLPipe
   ],
   imports: [
     BrowserModule,

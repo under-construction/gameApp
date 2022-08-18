@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/Services/game.service';
 
 @Component({
   selector: 'game-list',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameListComponent implements OnInit {
 
-  constructor() { }
+  games: any = [];
+
+  constructor(
+    private gameService: GameService
+  ) { }
 
   ngOnInit(): void {
+    this.getAllGames();
   }
 
+  getAllGames() {
+    this.gameService.GetAll()
+    .subscribe(
+      res => this.games = res,
+      err => console.log(err.message)
+    );
+  }
+
+  deleteGame(id: number) {
+    this.gameService.Delete(id)
+    .subscribe(
+      () => this.getAllGames(),
+      err => console.log(err.message)
+    )
+  }
 }

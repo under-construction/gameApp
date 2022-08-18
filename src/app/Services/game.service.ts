@@ -20,4 +20,8 @@ export class GameService {
   Insert(model: any): Observable<any> {
     return this.http.post<any>(`${this.baseURL}/games`, model); 
   }
+
+  Delete(id: number): Observable<any> {
+    return this.http.delete(`${this.baseURL}/games/${id}`);
+  }
 }
