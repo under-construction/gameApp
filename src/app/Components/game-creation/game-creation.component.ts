@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GameService } from 'src/app/Services/game.service';
+declare let alertify: any;
 
 @Component({
   selector: 'app-game-creation',
@@ -15,8 +16,6 @@ export class GameCreationComponent implements OnInit {
     owner: new FormControl('', [Validators.required, Validators.pattern('^.+@.+\\..+$')]),
     photo: new FormControl('', Validators.required)
   });
-
-  isX: boolean = true;
 
   get formData() { return this.gameForm.controls; };
 
@@ -36,12 +35,19 @@ export class GameCreationComponent implements OnInit {
     if (this.gameForm.valid) {
       this.gameService.Insert(gameForm.value)
       .subscribe(
-        () => window.location.replace('./'),
+        () => this.successAlert(),
         err => console.log(err.message)
       );
     }
     else {
       this.validateForm();
     }
+  }
+
+  successAlert() {
+    const innerHTML = 
+    '<div style="display: flex"><div style="display: flex; align-items: center; margin-right: 10px;"><i class="fa fa-check" style="color: #fff; font-size: 1.75em;"></i></div><div style="display: flex; flex-direction: column; align-items: flex-start;"><div style="font-weight: bold; color: #eee;">success</div><div style="color: #eee;">game created successfully</div></div></div>'
+    alertify.set('notifier', 'position', 'top-right');
+    alertify.success(innerHTML, 2, () => window.location.replace('./'));
   }
 }
