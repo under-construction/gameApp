@@ -18,8 +18,9 @@ div > button {
     display: inline-block;
 }
 
-div > input {
+input {
     padding: 1em;
+    border: 1px solid #eee;
 }
 
 #records {
@@ -45,10 +46,11 @@ button > a {
 }
 
 .gameCard {
+    background-color: #efefef;
     margin-right: 25px;
     margin-bottom: 25px;
     padding: 10px;
-    border: 1px solid black;
+    border: 0.1px solid rgb(198, 198, 198);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -72,4 +74,14 @@ div > p {
 
 .alertify-notifier .ajs-message.ajs-success {
     background-color: #4EA351;
+}
+
+.main {
+    background-color: #e4e4e4;
+}
+
+.container {
+    width: 80%;
+    display: block;
+    margin: auto;
 }

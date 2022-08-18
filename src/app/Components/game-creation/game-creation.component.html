@@ -1,46 +1,52 @@
-<div style="display: flex; flex-direction: column; align-items: center;">
-    <div>
-    <h3>New Game</h3>
-
-    <form [formGroup]="gameForm" (ngSubmit)="onSubmit(gameForm)">
-        <input [ngClass]="{'invalidInput': formData.gameName.touched && formData.gameName.errors}"
-        placeholder=" " type="text" formControlName="gameName"/>
-        <label>Game Name</label>
-        <div *ngIf="formData.gameName.touched && formData.gameName.errors" style="color: #E34B3A;">
-            this field is required
-        </div>
-
-        <input [ngClass]="{'invalidInput': formData.bundle.touched && formData.bundle.errors}"
-        placeholder=" " type="text" formControlName="bundle"/>
-        <label>Bundle</label>
-        <div *ngIf="formData.bundle.touched && formData.bundle.errors">
-            <div *ngIf="formData.bundle.errors.required" style="color: #E34B3A;">
-                this field is required
-            </div>
-            <div *ngIf="formData.bundle.errors.pattern" style="color: #E34B3A;">
-                bundle is not valid
-            </div>
-        </div>
-
-        <input [ngClass]="{'invalidInput': formData.owner.touched && formData.owner.errors}"
-        placeholder=" " type="email" formControlName="owner"/>
-        <label>Owner</label>
-        <div *ngIf="formData.owner.touched && formData.owner.errors">
-            <div *ngIf="formData.owner.errors.required" style="color: #E34B3A;">
-                this field is required
-            </div>
-            <div *ngIf="formData.owner.errors.pattern" style="color: #E34B3A;">
-                email is not valid
-            </div>
-        </div>
-
+<div class="main">
+    <div class="container">
         <div>
-            <input type="file" id="fileInput" formControlName="photo"/>
+            <h3>New Game</h3>
         </div>
 
-        <div class="btnDiv">
-            <button type="submit">save</button>
+        <div class="formContainer">
+            <form [formGroup]="gameForm" (ngSubmit)="onSubmit(gameForm)">
+                <div>
+                    <input [ngClass]="{'invalidInput': formData.gameName.touched && formData.gameName.errors}"
+                    placeholder=" " type="text" formControlName="gameName"/>
+                    <label>Game Name</label>
+                    <div *ngIf="formData.gameName.touched && formData.gameName.errors" style="color: #E34B3A;">
+                        this field is required
+                    </div>
+
+                    <input [ngClass]="{'invalidInput': formData.bundle.touched && formData.bundle.errors}"
+                    placeholder=" " type="text" formControlName="bundle"/>
+                    <label>Bundle</label>
+                    <div *ngIf="formData.bundle.touched && formData.bundle.errors">
+                        <div *ngIf="formData.bundle.errors.required" style="color: #E34B3A;">
+                            this field is required
+                        </div>
+                        <div *ngIf="formData.bundle.errors.pattern" style="color: #E34B3A;">
+                            bundle is not valid
+                        </div>
+                    </div>
+
+                    <input [ngClass]="{'invalidInput': formData.owner.touched && formData.owner.errors}"
+                    placeholder=" " type="email" formControlName="owner"/>
+                    <label>Owner</label>
+                    <div *ngIf="formData.owner.touched && formData.owner.errors">
+                        <div *ngIf="formData.owner.errors.required" style="color: #E34B3A;">
+                            this field is required
+                        </div>
+                        <div *ngIf="formData.owner.errors.pattern" style="color: #E34B3A;">
+                            email is not valid
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="file" id="fileInput" formControlName="photo"/>
+                </div>
+
+                <div class="btnDiv">
+                    <button type="submit">save</button>
+                </div>
+            </form>
         </div>
-    </form>
     </div>
 </div>
