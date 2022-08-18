@@ -9,6 +9,7 @@ import { GameService } from 'src/app/Services/game.service';
 export class GameListComponent implements OnInit {
 
   games: any = [];
+  searchText: string = "";
 
   constructor(
     private gameService: GameService
@@ -32,5 +33,9 @@ export class GameListComponent implements OnInit {
       () => this.getAllGames(),
       err => console.log(err.message)
     )
+  }
+
+  onInputChange(value: any) {
+    alert(value);
   }
 }

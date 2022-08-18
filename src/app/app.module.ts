@@ -5,22 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameListComponent } from './Components/game-list/game-list.component';
 import { GameCreationComponent } from './Components/game-creation/game-creation.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SafeHTMLPipe } from './Pipes/safe-html.pipe';
+import { SearchFilterPipe } from './Pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameListComponent,
     GameCreationComponent,
-    SafeHTMLPipe
+    SafeHTMLPipe,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
