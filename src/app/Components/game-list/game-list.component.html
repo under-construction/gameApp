@@ -1,32 +1,36 @@
-<h2>Game List</h2>
-<div>
-    <input placeholder="search" [(ngModel)]="searchText" autofocus>
-    <button>
-        <a class="btn" routerLink="/create">new game</a>
-    </button>
-</div>
-
-<div id="records" *ngIf="games.length === 0">
-    <p>no records found</p>
-</div>
-
-<div class="gameList" *ngIf="games">
-    <div class="gameCard" *ngFor="let i of games | searchFilter: searchText">
-        <img src="{{i.photo}} | safeHTML" alt="game photo" />
-        <div class="cardItem">
-            <p style="font-weight: bold;">Game Name:&nbsp;</p>
-            <p> {{i.gameName}}</p>
-        </div>
-        <div class="cardItem">
-            <p style="font-weight: bold;">Bundle:&nbsp;</p>
-            <p>{{i.bundle}}</p>
-        </div>
-        <div class="cardItem">
-            <p style="font-weight: bold;">Owner:&nbsp;</p>
-            <p>{{i.owner}}</p>
-        </div>
+<div class="main">
+    <div class="container">
+        <h2>Game List</h2>
         <div>
-            <button id="btnDelete" (click)="deleteGame(i.id)">delete</button>
+            <input placeholder="search" [(ngModel)]="searchText" autofocus>
+            <button>
+                <a class="btn" routerLink="/create">new game</a>
+            </button>
+        </div>
+
+        <div id="records" *ngIf="games.length === 0">
+            <p>no records found</p>
+        </div>
+
+        <div class="gameList" *ngIf="games">
+            <div class="gameCard" *ngFor="let i of games | searchFilter: searchText">
+                <img src="{{i.photo}} | safeHTML" alt="game photo" />
+                <div class="cardItem">
+                    <p style="font-weight: bold;">Game Name:&nbsp;</p>
+                    <p> {{i.gameName}}</p>
+                </div>
+                <div class="cardItem">
+                    <p style="font-weight: bold;">Bundle:&nbsp;</p>
+                    <p>{{i.bundle}}</p>
+                </div>
+                <div class="cardItem">
+                    <p style="font-weight: bold;">Owner:&nbsp;</p>
+                    <p>{{i.owner}}</p>
+                </div>
+                <div>
+                    <button id="btnDelete" (click)="deleteGame(i.id)">delete</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
