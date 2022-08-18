@@ -40,15 +40,19 @@ button > a {
     margin-top: 25px;
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 .gameCard {
     margin-right: 25px;
+    margin-bottom: 25px;
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    width: 15%;
 }
 
 .cardItem {
@@ -59,8 +63,13 @@ button > a {
     background-color: red;
     font-weight: bold;
     padding: 10px 35px;
+    cursor: pointer;
 }
 
 div > p {
     margin: 0.5em 0 0.5em 0;
+}
+
+.alertify-notifier .ajs-message.ajs-success {
+    background-color: #4EA351;
 }
